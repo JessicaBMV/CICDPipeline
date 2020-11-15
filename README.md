@@ -50,3 +50,4 @@ Port: 443
 
 ![Python application test with Github Actions](https://github.com/JessicaBMV/CICDPipeline/workflows/Python%20application%20test%20with%20Github%20Actions/badge.svg)
 
+[![Build Status](https://dev.azure.com/jessmenesses110754/jessmenesses11/_apis/build/status/JessicaBMV.CICDPipeline?branchName=main)](https://dev.azure.com/jessmenesses110754/jessmenesses11/_build/latest?definitionId=1&branchName=main)
