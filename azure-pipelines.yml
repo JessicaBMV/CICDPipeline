@@ -1,4 +1,5 @@
 # Python to Linux Web App on Azure
+
 # Build your Python project and deploy it to Azure as a Linux Web App.
 # Change python version to one thats appropriate for your application.
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
@@ -8,7 +9,6 @@ trigger:
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
-  azureServiceConnectionId: '984d9b6a-3751-4335-815f-7bdb301c272b'
   
   # Web app name
   webAppName: 'jess-pipeline'
@@ -22,7 +22,7 @@ variables:
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
   
-  # Python version: 3.7
+  # Python version: 3.6
   pythonVersion: '3.6'
 
 stages:
@@ -78,8 +78,9 @@ stages:
             displayName: 'Use Python version'
 
           - task: AzureWebApp@1
-            displayName: 'Deploy Azure Web App : {{ webAppName }}'
             inputs:
-              azureSubscription: $(azureServiceConnectionId)
-              appName: $(webAppName)
+              azureSubscription: 'CICDPipeline'
+              appType: 'webAppLinux'
+              appName: 'jess-pipeline'
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+              startUpCommand: './make_predict_azure_app.sh'
