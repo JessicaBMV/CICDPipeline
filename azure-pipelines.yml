@@ -82,5 +82,5 @@ stages:
               azureSubscription: 'CICDPipeline'
               appType: 'webAppLinux'
               appName: 'jess-pipeline'
-              package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+              package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
               startUpCommand: './make_predict_azure_app.sh'
