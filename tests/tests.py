@@ -69,4 +69,4 @@ class TestPurchaseRequest(unittest.TestCase):
                                  content_type='application/json',  headers=headers)
         self.assertEqual(response.status_code, 200)
         self.assertIsNotNone(response.data)
-        self.assertEqual(response.data , b'{"prediction":[20.35373177134412]}\n)
+        self.assertEqual(response.data , b'{"prediction":[20.35373177134412]}')
