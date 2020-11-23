@@ -1,6 +1,9 @@
 # Overview
 
-<TODO: complete this with an overview of your project>
+This a a project that guides you through the creation of a continuous delivery system.
+It starts by giving you an introduction to github actions and how to configure it. 
+As a second step it helps you create a flask web application using azure webapp services. 
+The last step is the implementation of azure devops resources, in which it shows you how to create an azure pipeline and how to connect it to the source code in github to deploy the flask application.
 
 ## Project Plan
 <TODO: Project Plan
