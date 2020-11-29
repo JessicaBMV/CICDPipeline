@@ -3,4 +3,4 @@ import waitress
 
 
 
-waitress.serve(app.create_app(), port=5680)
+waitress.serve(app.create_app())
