@@ -11,7 +11,6 @@ The last step is the implementation of azure devops resources, in which it shows
 https://trello.com/invite/b/fj9KGkSi/9b382eafc2427e3cadc8f5aff5be04cb/flask-ml-app
 
 * A link to a spreadsheet that includes the original and final project plan
-
 https://docs.google.com/spreadsheets/d/1CjIaZvRG48ieOfN02LPeZaYDcxK9k12fbnniU8McjxE/edit?usp=sharing
 
 
@@ -25,8 +24,11 @@ https://docs.google.com/spreadsheets/d/1CjIaZvRG48ieOfN02LPeZaYDcxK9k12fbnniU8Mc
 * Project running on Azure App Service
 
 * Project cloned into Azure Cloud Shell
+<img src='/images/clone-repo.png'/>
 
 * Passing tests that are displayed after running the `make all` command from the `Makefile`
+<img src='/images/make-all.png'/>
+
 
 * Output of a test run
 
