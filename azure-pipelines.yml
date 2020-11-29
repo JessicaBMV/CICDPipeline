@@ -83,4 +83,4 @@ stages:
               appType: 'webAppLinux'
               appName: 'jess-pipeline'
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
-              startUpCommand: 'python ml_app.py'
+              startUpCommand: 'gunicorn -w 4 -b 0.0.0.0:5000 run:create_app()'

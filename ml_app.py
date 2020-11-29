@@ -1,6 +1,5 @@
-import app
-import waitress 
+from . import app
 
-
-
-waitress.serve(app.create_app())
+if __name__ == "__main__":
+    app = app.create_app()
+    app.run()
