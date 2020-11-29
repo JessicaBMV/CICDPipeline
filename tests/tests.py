@@ -4,7 +4,6 @@ import unittest
 sys.path.append(str(Path('.').absolute().parent))
 from app import create_app
 from flask import Flask
-import requests
 import json
 
 
