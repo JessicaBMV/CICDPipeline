@@ -64,12 +64,12 @@ def create_app():
         return "Model not loaded"
 
     json_payload = request.json
-    LOG.info("JSON payload: %s json_payload")
+    LOG.info('JSON payload: {}'.format(json_payload))
     inference_payload = pd.DataFrame(json_payload)
-    LOG.info("inference payload DataFrame: %s inference_payload")
+    LOG.info('inference payload DataFrame:{}'.format(inference_payload))
     scaled_payload = scale(inference_payload)
     prediction = list(clf.predict(scaled_payload))
-    LOG.info("Prediction: %s prediction")
+    LOG.info('Prediction: {}'.format(prediction))
     return jsonify({'prediction': prediction})
     
   return app
