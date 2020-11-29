@@ -6,14 +6,17 @@ As a second step it helps you create a flask web application using azure webapp 
 The last step is the implementation of azure devops resources, in which it shows you how to create an azure pipeline and how to connect it to the source code in github to deploy the flask application.
 
 ## Project Plan
-<TODO: Project Plan
 
 * A link to a Trello board for the project
-* A link to a spreadsheet that includes the original and final project plan>
+https://trello.com/invite/b/fj9KGkSi/9b382eafc2427e3cadc8f5aff5be04cb/flask-ml-app
+
+* A link to a spreadsheet that includes the original and final project plan
+
+https://docs.google.com/spreadsheets/d/1CjIaZvRG48ieOfN02LPeZaYDcxK9k12fbnniU8McjxE/edit?usp=sharing
+
 
 ## Instructions
 
-<TODO:  
 * Architectural Diagram
 <img src='/images/CICDPipeline.png'/>
 
