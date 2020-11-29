@@ -69,6 +69,7 @@ def create_app():
     LOG.info("inference payload DataFrame: %s inference_payload")
     scaled_payload = scale(inference_payload)
     prediction = list(clf.predict(scaled_payload))
+    LOG.info("Prediction: %s prediction")
     return jsonify({'prediction': prediction})
     
   return app
