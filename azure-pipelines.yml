@@ -23,7 +23,7 @@ variables:
   projectRoot: $(System.DefaultWorkingDirectory)
   
   # Python version: 3.6
-  pythonVersion: '3.6'
+  pythonVersion: '3.7'
 
 stages:
 - stage: Build
@@ -39,11 +39,31 @@ stages:
       displayName: 'Use Python $(pythonVersion)'
     
     - script: |
-        make setup
-        source ~/.CICDPipline/bin/activate
-        make install
+        python -m venv antenv
+        source antenv/bin/activate
+        python -m pip install --upgrade pip
+        pip install setup
+        pip install -r requirements.txt
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
+
+    - script: |
+        python -m venv antenv
+        source antenv/bin/activate
+        python -m pip install --upgrade pip
+        make install
+        make lint
+      workingDirectory: $(projectRoot)
+      displayName: "Run lint tests"
+
+    - script: |
+        python -m venv antenv
+        source antenv/bin/activate
+        python -m pip install --upgrade pip
+        make install
+        make test
+      workingDirectory: $(projectRoot)
+      displayName: "Run tests"
 
     - task: ArchiveFiles@2
       displayName: 'Archive files'
@@ -80,7 +100,6 @@ stages:
           - task: AzureWebApp@1
             inputs:
               azureSubscription: 'CICDPipeline'
-              appType: 'webAppLinux'
               appName: 'jess-pipeline'
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
               startUpCommand: 'gunicorn -w 4 -b 0.0.0.0:5000 "ml_app:create_app()"'
