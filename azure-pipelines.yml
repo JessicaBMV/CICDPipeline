@@ -103,12 +103,5 @@ stages:
               azureSubscription: '0acdc3b1-4f8a-49b8-8fb5-a9d939e75911'
               appName: $(webAppName)
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+              StartupCommand: 'gunicorn -w 4 -b 0.0.0.0:8000 "ml_app:create_app()"'
           
-          - task: AzureRmWebAppDeployment@4
-            inputs:
-              ConnectionType: 'AzureRM'
-              azureSubscription: '0acdc3b1-4f8a-49b8-8fb5-a9d939e75911'
-              appType: 'webAppLinux'
-              WebAppName: 'jess-pipeline'
-              packageForLinux: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
-              StartupCommand: 'gunicorn -w 4 -b 0.0.0.0:5000 "ml_app:create_app()"'
