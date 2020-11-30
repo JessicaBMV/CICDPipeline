@@ -1,3 +1,7 @@
+![Python application test with Github Actions](https://github.com/JessicaBMV/CICDPipeline/workflows/Python%20application%20test%20with%20Github%20Actions/badge.svg)
+
+[![Build Status](https://dev.azure.com/jessmenesses110754/jessmenesses11/_apis/build/status/JessicaBMV.CICDPipeline?branchName=main)](https://dev.azure.com/jessmenesses110754/jessmenesses11/_build/latest?definitionId=1&branchName=main)
+
 # Overview
 
 This a a project that guides you through the creation of a continuous delivery system.
@@ -19,8 +23,35 @@ https://docs.google.com/spreadsheets/d/1CjIaZvRG48ieOfN02LPeZaYDcxK9k12fbnniU8Mc
 * Architectural Diagram
 <img src='/images/CICDPipeline.png'/>
 
-<TODO:  Instructions for running the Python project.  How could a user with no context run this project without asking you for any help.  Include screenshots with explicit steps to create that work. Be sure to at least include the following screenshots:
+To be able to use this repository and deploy it you have to follow the next steps:
 
+1. Configure your azure shell by clicking on the shell icon on your azure portal.
+2. Once you have configured you azure shell, you have to clone your repository to your shell.
+3. Change to the directory of your project.
+4. To Create your webapp you have to type the next command:
+
+```
+az webapp up --name <NAME OF APP> --sku FREE  -l <LOCATION>
+
+```
+This will automatically create a resource group and your webapp.
+
+5. This webapp need a start uo command to be able to work, so you'll need to do the next command: 
+
+```
+az webapp config set -g <your-resource-group> -n <your-appservice> --startup-file 'gunicorn -w 4 -b 0.0.0.0:8000 "ml_app:create_app()"'
+
+```
+This will make your app be ready to be used. 
+
+6. You will have to change the make_predict_Azure_app.sh the line 28 where the request is made to my webapp to the webapp you just created. 
+
+If you want to set up the azure pipelines follow the azure tutorial : [Use CI/CD to deploy a Python web app to Azure App Service on Linux](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops)
+
+The azure-pipelines.yaml is all set up in this repository and the only thing you will need to change is the azure subscription/ connection string on the task AzureWebApp@1.
+
+
+## Outputs
 * Project running on Azure App Service
 <img src='/images/webapp-running.png'/>
 
@@ -34,27 +65,23 @@ https://docs.google.com/spreadsheets/d/1CjIaZvRG48ieOfN02LPeZaYDcxK9k12fbnniU8Mc
 * Output of a test run
 <img src='/images/make-test.png'/>
 
+* App deployed
+<img src='/images/home.png'/>
 
-* Successful deploy of the project in Azure Pipelines.  [Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
+*App Deployed prediction postman
+<img src='/images/postman-prediction.png'/>
 
-* Running Azure App Service from Azure Pipelines automatic deployment
+* Prediction on Cloud Shell 
+<img src='/images/prediction.png'/>
 
-* Successful prediction from deployed flask app in Azure Cloud Shell.  [Use this file as a template for the deployed prediction](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/blob/master/C2-AgileDevelopmentwithAzure/project/starter_files/flask-sklearn/make_predict_azure_app.sh).
-The output should look similar to this:
-
-```bash
-udacity@Azure:~$ ./make_predict_azure_app.sh
-Port: 443
-{"prediction":[20.35373177134412]}
-```
-
-* Output of streamed log files from deployed application
-
-> 
 
 ## Enhancements
 
-<TODO: A short description of how to improve the project in the future>
+- Application Scalatibility.
+- Improve dataset to get better results.
+- Train the machine learning model with the new data set and improve accuracy.
+- Create the web application frontend to be user friendly.
+- Create a mobile app of the web application.
 
 
 
@@ -62,6 +89,7 @@ Port: 443
 
 <TODO: Add link Screencast on YouTube>
 
-![Python application test with Github Actions](https://github.com/JessicaBMV/CICDPipeline/workflows/Python%20application%20test%20with%20Github%20Actions/badge.svg)
+## Resources
+- [Use CI/CD to deploy a Python web app to Azure App Service on Linux](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops)
+- [Build GitHub repositories](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml)
 
-[![Build Status](https://dev.azure.com/jessmenesses110754/jessmenesses11/_apis/build/status/JessicaBMV.CICDPipeline?branchName=main)](https://dev.azure.com/jessmenesses110754/jessmenesses11/_build/latest?definitionId=1&branchName=main)
