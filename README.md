@@ -36,7 +36,7 @@ az webapp up --name <NAME OF APP> --sku FREE  -l <LOCATION>
 ```
 This will automatically create a resource group and your webapp.
 
-5. This webapp need a start uo command to be able to work, so you'll need to do the next command: 
+5. This webapp need a start up command to be able to work, so you'll need to do the next command: 
 
 ```
 az webapp config set -g <your-resource-group> -n <your-appservice> --startup-file 'gunicorn -w 4 -b 0.0.0.0:8000 "ml_app:create_app()"'
@@ -68,7 +68,7 @@ The azure-pipelines.yaml is all set up in this repository and the only thing you
 * App deployed
 <img src='/images/home.png'/>
 
-*App Deployed prediction postman
+* App Deployed prediction postman
 <img src='/images/postman-prediction.png'/>
 
 * Prediction on Cloud Shell 
