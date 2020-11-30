@@ -98,9 +98,9 @@ stages:
             displayName: 'Use Python version'
 
           - task: AzureWebApp@1
+            displayName: 'Deploy Azure Web App : {{ webAppName }}'
             inputs:
-              azureSubscription: 'CICDPipeline'
-              appType: 'webAppLinux'
-              appName: 'jess-pipeline'
+              azureSubscription: $(azureServiceConnectionId)
+              appName: $(webAppName)
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
               startUpCommand: 'gunicorn -w 4 -b 0.0.0.0:5000 "ml_app:create_app()"'
