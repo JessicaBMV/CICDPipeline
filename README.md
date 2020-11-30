@@ -9,6 +9,9 @@ It starts by giving you an introduction to github actions and how to configure i
 As a second step it helps you create a flask web application using azure webapp services. 
 The last step is the implementation of azure devops resources, in which it shows you how to create an azure pipeline and how to connect it to the source code in github to deploy the flask application.
 
+## Architectural Diagram
+<img src='/images/CICDPipeline.png'/>
+
 ## Project Plan
 
 * A link to a Trello board for the project
@@ -19,9 +22,6 @@ https://docs.google.com/spreadsheets/d/1CjIaZvRG48ieOfN02LPeZaYDcxK9k12fbnniU8Mc
 
 
 ## Instructions
-
-* Architectural Diagram
-<img src='/images/CICDPipeline.png'/>
 
 To be able to use this repository and deploy it you have to follow the next steps:
 
