@@ -77,6 +77,9 @@ The azure-pipelines.yaml is all set up in this repository and the only thing you
 * App service on azure
 <img src='/images/app-service.png'/>
 
+* Azure pipeline running
+<img src='/images/pipeline.png'/>
+
 
 ## Enhancements
 
