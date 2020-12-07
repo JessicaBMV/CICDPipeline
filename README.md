@@ -74,6 +74,9 @@ The azure-pipelines.yaml is all set up in this repository and the only thing you
 * Prediction on Cloud Shell 
 <img src='/images/prediction.png'/>
 
+* App service on azure
+<img src='/images/app-service.png'/>
+
 
 ## Enhancements
 
