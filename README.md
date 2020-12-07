@@ -83,6 +83,9 @@ The azure-pipelines.yaml is all set up in this repository and the only thing you
 * Github Actions 
 <img src='/images/github-actions.png'/>
 
+* Locust Tests 
+<img src='/images/locust.png'/>
+
 
 ## Enhancements
 
