@@ -80,6 +80,9 @@ The azure-pipelines.yaml is all set up in this repository and the only thing you
 * Azure pipeline running
 <img src='/images/pipeline.png'/>
 
+* Github Actions 
+<img src='/images/github-actions.png'/>
+
 
 ## Enhancements
 
