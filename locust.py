@@ -3,6 +3,7 @@ import json
 
 class MyUser(HttpUser):
     wait_time = constant(1)
+    host = 'https://jess-pipeline.azurewebsites.net'
 
     @task
     def home(self):
@@ -33,7 +34,7 @@ class MyUser(HttpUser):
             "0":4.98
             }
         }
-        response = self.client.post("/predict", data=json.dumps(payload), headers=headers, catch_response=True)
+        response = self.client.post("/predict", data=json.dumps(payload), headers=headers)
         print("Response status code:", response.status_code)
         print("Response text:", response.text)
 
